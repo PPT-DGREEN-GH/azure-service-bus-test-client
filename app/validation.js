@@ -19,8 +19,17 @@ const validateAddress = [
 
 const validateMessage = [
   check('message')
-    .isJSON()
-    .withMessage('Invalid JSON message')
+    .custom((value, { req }) => {
+      if (req.body.format === 'json') {
+        try {
+          JSON.parse(value)
+          return true
+        } catch (e) {
+          throw new Error('Invalid JSON message')
+        }
+      }
+      return true
+    })
     .trim(),
 ]
 
