@@ -6,13 +6,7 @@ services:
     build: 
       context: .
       target: development
-      args:
-        # Add your connection parameters here
-        - DEFAULT_CONNECTION_STRING=Endpoint=sb://your-namespace.servicebus.windows.net/;SharedAccessKeyName=YourKeyName;SharedAccessKey=YourKeyValue
-        - DEFAULT_QUEUE_OR_TOPIC_NAME=your-queue-or-topic-name
-        - DEFAULT_SUBSCRIPTION_NAME=your-subscription-name
     environment:
-      # These must match the build args above
       - DEFAULT_CONNECTION_STRING=Endpoint=sb://your-namespace.servicebus.windows.net/;SharedAccessKeyName=YourKeyName;SharedAccessKey=YourKeyValue
       - DEFAULT_QUEUE_OR_TOPIC_NAME=your-queue-or-topic-name
       - DEFAULT_SUBSCRIPTION_NAME=your-subscription-name
